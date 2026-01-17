@@ -13,7 +13,7 @@
 [![npm][npm-image]][npm-url]
 [![更新日志 #212][changelog-image]][changelog-url]
 
-**语言**: [English](README.md) | [中文](README.zh.md)
+**语言**:  [中文](README.md) |[English](README.en.md) 
 
 [网站](https://www.sitespeed.io/) | [文档](https://www.sitespeed.io/documentation/sitespeed.io/) | [更新日志](https://github.com/sitespeedio/sitespeed.io/blob/main/CHANGELOG.md) | [Bluesky](https://bsky.app/profile/sitespeed.io) | [Mastodon](https://fosstodon.org/@sitespeedio)
 
