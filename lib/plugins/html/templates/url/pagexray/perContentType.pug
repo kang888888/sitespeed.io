@@ -5,9 +5,10 @@
 a#requests-and-sizes-per-content-type
 h3 Requests and sizes per content type
 
+- const t = translations || {}
 .responsive
   table(data-sortable, id='contentSize')
-    +rowHeading(['Content', 'Header Size', 'Transfer Size', 'Content Size', 'Requests'])
+    +rowHeading([t['table.content'] || 'Content', t['table.headerSize'] || 'Header Size', t['table.transferSize'] || 'Transfer Size', t['table.contentSize'] || 'Content Size', t['table.requests'] || 'Requests'])
     - numberOfRequestsLabels = []
     - numberOfRequests = []
     - transferSizeOfRequests = []
@@ -23,14 +24,14 @@ h3 Requests and sizes per content type
         - transferSizeOfRequests.push({meta: type + ' transfer size (kb)', value: h.size.asKb(data.transferSize)})
         - contentSizeOfRequests.push({meta: type + ' content size (kb)', value: h.size.asKb(data.contentSize)})
         tr
-          td(data-title='Content Type') #{type}
-          +sizeCell('headerSize', data.headerSize)
-          +sizeCell('transferSize', data.transferSize)
-          +sizeCell('contentSize', data.contentSize)
-          +numberCell('requests', data.requests)
+          td(data-title=(t && t['table.contentType']) ? t['table.contentType'] : 'Content Type') #{type}
+          +sizeCell((t && t['table.headerSize']) ? t['table.headerSize'] : 'headerSize', data.headerSize)
+          +sizeCell((t && t['table.transferSize']) ? t['table.transferSize'] : 'transferSize', data.transferSize)
+          +sizeCell((t && t['table.contentSize']) ? t['table.contentSize'] : 'contentSize', data.contentSize)
+          +numberCell((t && t['table.requests']) ? t['table.requests'] : 'requests', data.requests)
     tr
-      td(data-title='Total') Total
-      +sizeCell('headerSize', totalHeaderSize)
-      +sizeCell('transferSize', totalTransferSize)
-      +sizeCell('contentSize', totalContentSize)
-      +numberCell('requests', totalRequests)
+      td(data-title=(t && t['table.total']) ? t['table.total'] : 'Total') #{t['table.total'] || 'Total'}
+      +sizeCell((t && t['table.headerSize']) ? t['table.headerSize'] : 'headerSize', totalHeaderSize)
+      +sizeCell((t && t['table.transferSize']) ? t['table.transferSize'] : 'transferSize', totalTransferSize)
+      +sizeCell((t && t['table.contentSize']) ? t['table.contentSize'] : 'contentSize', totalContentSize)
+      +numberCell((t && t['table.requests']) ? t['table.requests'] : 'requests', totalRequests)

@@ -27,24 +27,25 @@ if pageInfo.data.coach
         a(href='https://github.com/patrickhulce/third-party-web') Third party web
         | &nbsp;version #{thirdPartyWebVersion}.
 
+- const t = translations || {}
     if thirdparty.category && Object.keys(thirdparty.category).length > 0
         .row
             .one-half.column
                 table(data-sortable, id='thirdPartyCategories')
-                    +rowHeading(['Category', 'Requests'])
+                    +rowHeading([t['table.category'] || 'Category', t['table.requests'] || 'Requests'])
                     each metric, category in thirdparty.category
                         if (category !== 'unknown')
                             tr 
-                                td(data-title='Category') #{category} 
-                                +numberCell('requests', metric.requests ? metric.requests.median : metric)
+                                td(data-title=(t && t['table.category']) ? t['table.category'] : 'Category') #{category} 
+                                +numberCell((t && t['table.requests']) ? t['table.requests'] : 'requests', metric.requests ? metric.requests.median : metric)
             .one-half.column
                 table(data-sortable, id='thirdPartyTools')
-                    +rowHeading(['Category', 'Number of tools'])
+                    +rowHeading([t['table.category'] || 'Category', t['table.numberOfTools'] || 'Number of tools'])
                     each metric, category in thirdparty.category
                         if (category !== 'unknown')
                             tr 
-                                td(data-title='Category') #{category}     
-                                +numberCell('Tools', metric.tools ? metric.tools.median :Object.keys(thirdparty.toolsByCategory[category]).length)
+                                td(data-title=(t && t['table.category']) ? t['table.category'] : 'Category') #{category}     
+                                +numberCell((t && t['table.numberOfTools']) ? t['table.numberOfTools'] : 'Tools', metric.tools ? metric.tools.median :Object.keys(thirdparty.toolsByCategory[category]).length)
 
     if thirdparty.assets && Object.keys(thirdparty.assets).length > 0
         a#third-party-tools

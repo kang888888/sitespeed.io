@@ -3,27 +3,28 @@ include _tableMixins
 
 block content
   include runInfo
+  - const t = translations || {}
   .responsive
     table(data-sortable, id='detailed')
       thead
         tr
-          th name
-          th min
-          th median
-          th mean
-          th p90
-          th max
+          th= t['table.name'] || 'name'
+          th= t['table.min'] || 'min'
+          th= t['table.median'] || 'median'
+          th= t['table.mean'] || 'mean'
+          th= t['table.p90'] || 'p90'
+          th= t['table.max'] || 'max'
       each metric in metrics
         if metric.node && (metric.node.min  || metric.node.min === 0)
           tr
-            td(data-title='Metric', data-value=metric.name)
+            td(data-title=t['table.metric'] || 'Metric', data-value=metric.name)
               if (metric.metricName)
                 - url = 'help.html#' + metric.metricName
                 a(href=url) #{metric.name}
               else
                 | #{metric.name}
-            td(data-title='min', data-value=metric.node.min) #{metric.h(metric.node.min)}
-            td(data-title='median', data-value=metric.node.median) #{metric.h(metric.node.median)}
-            td(data-title='mean', data-value=metric.node.mean) #{metric.h(metric.node.mean)}
-            td(data-title='p90', data-value=metric.node.p90) #{metric.h(metric.node.p90)}
-            td(data-title='max', data-value=metric.node.max) #{metric.h(metric.node.max)}
+            td(data-title=t['table.min'] || 'min', data-value=metric.node.min) #{metric.h(metric.node.min)}
+            td(data-title=t['table.median'] || 'median', data-value=metric.node.median) #{metric.h(metric.node.median)}
+            td(data-title=t['table.mean'] || 'mean', data-value=metric.node.mean) #{metric.h(metric.node.mean)}
+            td(data-title=t['table.p90'] || 'p90', data-value=metric.node.p90) #{metric.h(metric.node.p90)}
+            td(data-title=t['table.max'] || 'max', data-value=metric.node.max) #{metric.h(metric.node.max)}

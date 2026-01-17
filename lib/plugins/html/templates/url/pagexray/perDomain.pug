@@ -1,12 +1,13 @@
+- const t = translations || {}
 a#data-per-domain
 h3 Data per domain
 .responsive
   table(data-sortable, id='contentSizePerDomain')
-    +rowHeading(['Domain', 'Total download time', 'Transfer Size', 'Content Size', 'Requests'])
+    +rowHeading([t['table.domain'] || 'Domain', t['table.totalDownloadTime'] || 'Total download time', t['table.transferSize'] || 'Transfer Size', t['table.contentSize'] || 'Content Size', t['table.requests'] || 'Requests'])
     each data, domain in pagexray.domains
       tr
-        td(data-title='Domain') #{domain}
-        +timeCell('totalTime', data.totalTime)
-        +sizeCell('transferSize', data.transferSize)
-        +sizeCell('contentSize', data.contentSize)
-        +numberCell('requests', data.requests)
+        td(data-title=(t && t['table.domain']) ? t['table.domain'] : 'Domain') #{domain}
+        +timeCell((t && t['table.totalDownloadTime']) ? t['table.totalDownloadTime'] : 'totalTime', data.totalTime)
+        +sizeCell((t && t['table.transferSize']) ? t['table.transferSize'] : 'transferSize', data.transferSize)
+        +sizeCell((t && t['table.contentSize']) ? t['table.contentSize'] : 'contentSize', data.contentSize)
+        +numberCell((t && t['table.requests']) ? t['table.requests'] : 'requests', data.requests)

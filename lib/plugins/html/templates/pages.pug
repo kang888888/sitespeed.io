@@ -2,21 +2,22 @@ extends ./layout.pug
 include _tableMixins
 
 mixin rows(pages)
+  - const translationsObj = translations || {}
   each pageInfo, url in pages
     - p = pageInfo.data.pagexray && pageInfo.data.pagexray.pageSummary ? pageInfo.data.pagexray.pageSummary : {}
     - tp = pageInfo.data.thirdparty ? pageInfo.data.thirdparty.pageSummary : {}
     - b = pageInfo.data.browsertime ? pageInfo.data.browsertime.pageSummary : {}
-    - t = p.contentTypes || {javascript: {transferSize: ''}, css: {transferSize: ''}, image: {transferSize: ''}}
+    - contentTypes = p.contentTypes || {javascript: {transferSize: ''}, css: {transferSize: ''}, image: {transferSize: ''}}
     - display = (options.urlsMetaData && options.urlsMetaData[url] && options.urlsMetaData[url].urlAlias) ? options.urlsMetaData[url].urlAlias : url
     - display = (pageInfo.data.browsertime && b.info.alias) ? b.info.alias : display
     - metricList = html.pageSummaryMetrics
     tr
-      td.url.pagesurl(data-title='URL')
+      td.url.pagesurl(data-title=(translationsObj && translationsObj['table.url']) ? translationsObj['table.url'] : 'URL')
         a(href= pageInfo.path + 'index.html')= decodeURIComponent(display)
       if (b.visualMetrics && b.visualMetrics[0]) && (!hasPageSummaryMetricInput)
-        +numberCell('First Visual Change', b.visualMetrics[0].FirstVisualChange)
-        +numberCell('Speed Index', b.visualMetrics[0].SpeedIndex)
-        +numberCell('Last Visual Change', b.visualMetrics[0].LastVisualChange)
+        +numberCell((translationsObj && translationsObj['table.firstVisualChange']) ? translationsObj['table.firstVisualChange'] : 'First Visual Change', b.visualMetrics[0].FirstVisualChange)
+        +numberCell((translationsObj && translationsObj['table.speedIndex']) ? translationsObj['table.speedIndex'] : 'Speed Index', b.visualMetrics[0].SpeedIndex)
+        +numberCell((translationsObj && translationsObj['table.lastVisualChange']) ? translationsObj['table.lastVisualChange'] : 'Last Visual Change', b.visualMetrics[0].LastVisualChange)
 
       each metric in metricList
         - [m, metricType] = metric.split('.')
@@ -42,16 +43,18 @@ mixin rows(pages)
           +numberCell(name, value)
 
 block content
-  - headings = ['URL']
+  - const translationsObj = translations || {}
+  - headings = [translationsObj['table.url'] || 'URL']
   if (options.browsertime.visualMetrics && !hasPageSummaryMetricInput)
-    - headings.push('First Visual Change', 'Speed Index', 'Last Visual Change')
+    - headings.push(translationsObj['table.firstVisualChange'] || 'First Visual Change', translationsObj['table.speedIndex'] || 'Speed Index', translationsObj['table.lastVisualChange'] || 'Last Visual Change')
   - metricList = html.pageSummaryMetrics
   each kv in metricList
     - [k, v] = kv.split('.')
     - headingText = ''
     each tool in Object.keys(friendlyNames)
       if (friendlyNames[tool] && friendlyNames[tool][k] && friendlyNames[tool][k][v])
-        - headingText = friendlyNames[tool][k][v].name
+        - metricKey = `metric.${tool}.${k}.${v}`
+        - headingText = (translationsObj && translationsObj[metricKey]) ? translationsObj[metricKey] : friendlyNames[tool][k][v].name
     - headings.push(headingText)
   .row
     .column

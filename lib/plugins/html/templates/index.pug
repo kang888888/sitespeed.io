@@ -1,14 +1,15 @@
 extends ./layout.pug
 
 mixin box(box)
+  - const tooltip = box.description || ''
   if (box.url)
     - url = 'help.html#' + box.url
-    a.summaries(href=url)
-      .summarybox(class=box.label)= box.name
+    a.summaries(href=url, title=tooltip)
+      .summarybox(class=box.label, title=tooltip)= box.name
         .summarynumber #{box.median}&nbsp;
           span.summarysmall (#{box.p90})
   else
-    .summarybox(class=box.label)= box.name
+    .summarybox(class=box.label, title=tooltip)= box.name
       .summarynumber #{box.median}&nbsp;
         span.summarysmall (#{box.p90})
 
@@ -29,4 +30,4 @@ block content
             default
               +box(box)
 
-    p.small * The value inside of the parentheses are the 90th percentile (90% of the time, the number is below this amount)
+    p.small #{(translations && translations['footer.note']) || '* The value inside of the parentheses are the 90th percentile (90% of the time, the number is below this amount)'}

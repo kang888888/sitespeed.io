@@ -17,14 +17,15 @@ block content
     h2 The budget
     p The result of the performance budget. We got #{totalFailing} failing and #{totalWorking} working.
 
+- const t = translations || {}
     h3 Failing budgets [#{totalFailing}]
     if totalFailing > 0 
       table
-          +rowHeading(['url', 'result'])
+          +rowHeading([t['table.url'] || 'url', t['table.result'] || 'result'])
           +row(budget.failing)
 
     h3 Working budgets [#{totalWorking}]
     if totalWorking > 0 
       table
-          +rowHeading(['url', 'result'])
+          +rowHeading([t['table.url'] || 'url', t['table.result'] || 'result'])
           +row(budget.working)

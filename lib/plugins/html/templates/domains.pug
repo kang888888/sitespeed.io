@@ -2,20 +2,22 @@ extends ./layout.pug
 include _tableMixins
 
 mixin rows(domainStats)
+  - const t = translations || {}
   each domain in domainStats
     tr
-      td.url.assetsurl(data-title='Domain') #{domain.domainName}
-      +statsCell(domain.blocked, 'Blocked', 'max')
-      +statsCell(domain.dns, 'DNS', 'max')
-      +statsCell(domain.connect, 'Connect', 'max')
-      +statsCell(domain.send, 'Send', 'max')
-      +statsCell(domain.ssl, 'SSL', 'max')
-      +statsCell(domain.wait, 'Wait', 'max')
-      +statsCell(domain.receive, 'Receive', 'max')
-      +statsCell(domain.totalTime, 'Total time', 'max')
-      +numberCell('Requests', domain.requestCount)
+      td.url.assetsurl(data-title=t['table.domain'] || 'Domain') #{domain.domainName}
+      +statsCell(domain.blocked, t['table.blocked'] || 'Blocked', 'max')
+      +statsCell(domain.dns, t['table.dns'] || 'DNS', 'max')
+      +statsCell(domain.connect, t['table.connect'] || 'Connect', 'max')
+      +statsCell(domain.send, t['table.send'] || 'Send', 'max')
+      +statsCell(domain.ssl, t['table.ssl'] || 'SSL', 'max')
+      +statsCell(domain.wait, t['table.wait'] || 'Wait', 'max')
+      +statsCell(domain.receive, t['table.receive'] || 'Receive', 'max')
+      +statsCell(domain.totalTime, t['table.totalTime'] || 'Total time', 'max')
+      +numberCell(t['table.requests'] || 'Requests', domain.requestCount)
 
 block content
+  - const t = translations || {}
   include runInfo
   if topDomains
     if count < fullCount
@@ -24,7 +26,7 @@ block content
       div Showing all #{fullCount} domains
     .responsive
       table(data-sortable, id='domains')
-        +rowHeading(['Domain', 'Blocked', 'DNS', 'Connect', 'Send', 'SSL', 'Wait', 'Receive', 'Total time', 'Requests'])
+        +rowHeading([t['table.domain'] || 'Domain', t['table.blocked'] || 'Blocked', t['table.dns'] || 'DNS', t['table.connect'] || 'Connect', t['table.send'] || 'Send', t['table.ssl'] || 'SSL', t['table.wait'] || 'Wait', t['table.receive'] || 'Receive', t['table.totalTime'] || 'Total time', t['table.requests'] || 'Requests'])
         +rows(topDomains)
   else
     p We are missing domain information, the HAR file wasn't generated.

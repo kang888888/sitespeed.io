@@ -1,20 +1,21 @@
 
 include ../../_tableMixins
 
+- const t = translations || {}
 - pagexray.assets.sort(function(a, b){return b.transferSize-a.transferSize})
 
 a#largest-assets
 h3 Largest assets on the page (by transfer size)
 .responsive
   table(data-sortable, id='largestAssetsOnThePage')
-    +rowHeading(['URL', 'Type', 'Transfer Size', 'Content Size'])
+    +rowHeading([t['table.url'] || 'URL', t['table.type'] || 'Type', t['table.transferSize'] || 'Transfer Size', t['table.contentSize'] || 'Content Size'])
     - let n = 0;
     each asset in pagexray.assets
      tr
-      td.url.assetsurl(data-title='URL')
+      td.url.assetsurl(data-title=(t && t['table.url']) ? t['table.url'] : 'URL')
         a(href=asset.url)= h.shortAsset(asset.url)
-      td(data-title='Content Type') #{asset.type}
-      +sizeCell('transferSize', asset.transferSize)
-      +sizeCell('contentSize', asset.contentSize)
+      td(data-title=(t && t['table.contentType']) ? t['table.contentType'] : 'Content Type') #{asset.type}
+      +sizeCell((t && t['table.transferSize']) ? t['table.transferSize'] : 'transferSize', asset.transferSize)
+      +sizeCell((t && t['table.contentSize']) ? t['table.contentSize'] : 'contentSize', asset.contentSize)
       - n++
       - if (n>19) break

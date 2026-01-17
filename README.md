@@ -1,235 +1,237 @@
 # sitespeed.io
 
-[![Unit tests](https://github.com/sitespeedio/sitespeed.io/actions/workflows/unittests.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/unittests.yml)
-[![Linux browsers](https://github.com/sitespeedio/sitespeed.io/actions/workflows/linux.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/linux.yml)
+[![单元测试](https://github.com/sitespeedio/sitespeed.io/actions/workflows/unittests.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/unittests.yml)
+[![Linux 浏览器](https://github.com/sitespeedio/sitespeed.io/actions/workflows/linux.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/linux.yml)
 [![Docker](https://github.com/sitespeedio/sitespeed.io/actions/workflows/docker.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/docker.yml)
-[![Docker security scan](https://github.com/sitespeedio/sitespeed.io/actions/workflows/docker-scan.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/docker-scan.yml)
+[![Docker 安全扫描](https://github.com/sitespeedio/sitespeed.io/actions/workflows/docker-scan.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/docker-scan.yml)
 [![Windows Edge](https://github.com/sitespeedio/sitespeed.io/actions/workflows/windows.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/windows.yml)
 [![OSX Safari](https://github.com/sitespeedio/sitespeed.io/actions/workflows/safari.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/safari.yml)
-[![Test upload functionality](https://github.com/sitespeedio/sitespeed.io/actions/workflows/upload.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/upload.yml)
-[![Downloads][downloads-image]][downloads-url]
+[![测试上传功能](https://github.com/sitespeedio/sitespeed.io/actions/workflows/upload.yml/badge.svg)](https://github.com/sitespeedio/sitespeed.io/actions/workflows/upload.yml)
+[![下载量][downloads-image]][downloads-url]
 [![Docker][docker-image]][docker-url]
-[![Stars][stars-image]][stars-url]
+[![星标数][stars-image]][stars-url]
 [![npm][npm-image]][npm-url]
-[![Changelog #212][changelog-image]][changelog-url]
+[![更新日志 #212][changelog-image]][changelog-url]
+
+**语言**: [English](README.md) | [中文](README.zh.md)
+
+[网站](https://www.sitespeed.io/) | [文档](https://www.sitespeed.io/documentation/sitespeed.io/) | [更新日志](https://github.com/sitespeedio/sitespeed.io/blob/main/CHANGELOG.md) | [Bluesky](https://bsky.app/profile/sitespeed.io) | [Mastodon](https://fosstodon.org/@sitespeedio)
 
 
-[Website](https://www.sitespeed.io/) | [Documentation](https://www.sitespeed.io/documentation/sitespeed.io/) | [Changelog](https://github.com/sitespeedio/sitespeed.io/blob/main/CHANGELOG.md) | [Bluesky](https://bsky.app/profile/sitespeed.io) | [Mastodon](https://fosstodon.org/@sitespeedio)
 
-
-
-# Table of Contents
-- [Welcome to the Wonderful World of Web Performance](#welcome-to-the-wonderful-world-of-web-performance)
-  - [What is sitespeed.io?](#what-is-sitespeedio)
-  - [Why Choose sitespeed.io?](#why-choose-sitespeedio)
-  - [Dive Into Our Documentation](#dive-into-our-documentation)
-- [Installation](#installation)
+# 目录
+- [欢迎来到精彩的 Web 性能世界](#欢迎来到精彩的-web-性能世界)
+  - [什么是 sitespeed.io？](#什么是-sitespeedio)
+  - [为什么选择 sitespeed.io？](#为什么选择-sitespeedio)
+  - [深入了解我们的文档](#深入了解我们的文档)
+- [安装](#安装)
   - [Docker](#docker)
   - [NodeJS](#nodejs)
-- [Usage](#usage)
-  - [Basic Usage](#basic-usage)
-  - [Advanced Configuration](#advanced-configuration)
-  - [Mobile Performance Testing](#mobile-performance-testing)
-- [Examples](#examples)
-- [Contributing](#contributing)
-- [Reporting Issues](#reporting-issues)
-- [Community and Support](#community-and-support)
-- [License](#license)
+- [使用](#使用)
+  - [基本用法](#基本用法)
+  - [高级配置](#高级配置)
+  - [移动端性能测试](#移动端性能测试)
+- [示例](#示例)
+- [贡献](#贡献)
+- [问题反馈](#问题反馈)
+- [社区和支持](#社区和支持)
+- [许可证](#许可证)
 
 
 
-# Welcome to the wonderful world of web performance!
+# 欢迎来到精彩的 Web 性能世界！
 
-Welcome to `sitespeed.io`, the comprehensive web performance tool designed for everyone passionate about web speed. Whether you're a developer, a site owner, or just someone curious about website performance, `sitespeed.io` offers a powerful yet user-friendly way to analyze and optimize your website.
+欢迎使用 `sitespeed.io`，这是一款专为所有热爱 Web 速度的人设计的综合 Web 性能工具。无论您是开发者、网站所有者，还是对网站性能感兴趣的人，`sitespeed.io` 都提供了一种强大而友好的方式来分析和优化您的网站。
 
-## What is sitespeed.io?
+## 什么是 sitespeed.io？
 
-`sitespeed.io` is more than just a tool; it's a complete solution for measuring, monitoring, and improving your website's performance. Built with simplicity and efficiency in mind, it enables you to:
+`sitespeed.io` 不仅仅是一个工具；它是一个完整的解决方案，用于测量、监控和改进您网站的性能。它设计简洁高效，使您能够：
 
-- **Test Websites Using Real Browsers**: Simulate real user interactions and conditions to get accurate performance data.
-- **Speed Optimization Feedback**: Get detailed insights into your website's construction and discover opportunities for enhancing speed.
-- **Track Performance Over Time**: Monitor changes and trends in your website's performance to stay ahead of potential issues.
+- **使用真实浏览器测试网站**：模拟真实用户交互和条件，获得准确的性能数据。
+- **速度优化反馈**：获取有关网站构建的详细见解，发现提升速度的机会。
+- **跟踪性能趋势**：监控网站性能的变化和趋势，提前发现潜在问题。
 
-Use cases on when to use `sitespeed.io`.
-- **Web performance audit**: Run performance tests from your terminal.
-- **Continuous Integration**: Detect web performance regressions early in the development cycle.
-- **Production Monitoring**: Monitor performance in production and get alerted on regressions.
+`sitespeed.io` 的使用场景：
+- **Web 性能审计**：从终端运行性能测试。
+- **持续集成**：在开发周期早期检测 Web 性能回归。
+- **生产环境监控**：监控生产环境的性能，并在出现回归时收到警报。
 
-## Why Choose sitespeed.io?
+## 为什么选择 sitespeed.io？
 
-- **Open Source and Community-Driven**: Built and maintained by a community, ensuring continuous improvement and innovation.
-- **Versatile and Extensible**: Whether you're running a simple blog or a complex e-commerce site, `sitespeed.io` adapts to your needs.
-- **Seamless Integration**: Easily incorporate `sitespeed.io` into your development workflow, continuous integration systems, and monitoring setups.
+- **开源和社区驱动**：由社区构建和维护，确保持续改进和创新。
+- **多功能且可扩展**：无论您运行的是简单的博客还是复杂的电子商务网站，`sitespeed.io` 都能适应您的需求。
+- **无缝集成**：轻松将 `sitespeed.io` 集成到您的开发工作流、持续集成系统和监控设置中。
 
-## Dive Into Our Documentation
+## 深入了解我们的文档
 
-We've put countless hours into our [documentation](https://www.sitespeed.io/documentation/sitespeed.io/) to help you get the most out of `sitespeed.io`. From installation guides to advanced usage scenarios, our documentation is a treasure trove of information and tips.
+我们在[文档](https://www.sitespeed.io/documentation/sitespeed.io/)上投入了大量时间，帮助您充分利用 `sitespeed.io`。从安装指南到高级使用场景，我们的文档是信息和技巧的宝库。
 
 
-# Installation
+# 安装
 
-Getting started with `sitespeed.io` is straightforward. You can install it using Docker or NodeJS, depending on your preference and setup. Follow these simple steps to begin optimizing your website's performance.
+开始使用 `sitespeed.io` 非常简单。您可以使用 Docker 或 NodeJS 安装，具体取决于您的偏好和设置。按照以下简单步骤开始优化您网站的性能。
 
 ## Docker
 
-Using Docker is the easiest way to get started with `sitespeed.io`, especially if you don't want to handle dependencies manually. Run the following command to use `sitespeed.io` in a Docker container:
+使用 Docker 是开始使用 `sitespeed.io` 最简单的方法，特别是如果您不想手动处理依赖项。运行以下命令在 Docker 容器中使用 `sitespeed.io`：
 
  ```bash
  docker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io https://www.sitespeed.io/
  ```
 
-This command pulls the latest sitespeed.io Docker image and runs a test on the sitespeed.io website. The **-v "$(pwd)":/sitespeed.io** part mounts the current directory into the container, allowing you to easily access test results.
+此命令拉取最新的 sitespeed.io Docker 镜像并在 sitespeed.io 网站上运行测试。**-v "$(pwd)":/sitespeed.io** 部分将当前目录挂载到容器中，使您可以轻松访问测试结果。
 
 ## NodeJS
 
-If you prefer installing `sitespeed.io` as an npm package, ensure you have NodeJS installed on your system. Then, install `sitespeed.io` globally using npm:
+如果您更喜欢将 `sitespeed.io` 安装为 npm 包，请确保您的系统上已安装 NodeJS。然后，使用 npm 全局安装 `sitespeed.io`：
 
  ```bash
  npm i -g sitespeed.io
  ```
 
- After installation, you can start using sitespeed.io by running:
+ 安装后，您可以通过运行以下命令开始使用 sitespeed.io：
   
 ```bash
 sitespeed.io https://www.example.com
 ```
 
-Replace https://www.example.com with the URL you wish to test. Note that using NodeJS might require additional dependencies like FFmpeg and Python. Detailed installation instructions for these dependencies can be found [here](https://www.sitespeed.io/documentation/sitespeed.io/installation/).
+将 https://www.example.com 替换为您要测试的 URL。请注意，使用 NodeJS 可能需要额外的依赖项，如 FFmpeg 和 Python。这些依赖项的详细安装说明可以在[这里](https://www.sitespeed.io/documentation/sitespeed.io/installation/)找到。
 
-Choose the method that best suits your environment and get ready to dive into web performance optimization with sitespeed.io!
+选择最适合您环境的方法，准备使用 sitespeed.io 深入 Web 性能优化！
 
-# Usage
+# 使用
 
-`sitespeed.io` is tailored to be user-friendly, making web performance testing accessible regardless of your technical expertise. Here's a straightforward guide to help you begin your web performance optimization journey.
+`sitespeed.io` 专为用户友好而设计，使 Web 性能测试变得易于使用，无论您的技术水平如何。以下是一个简单的指南，帮助您开始 Web 性能优化之旅。
 
-## Basic Usage
+## 基本用法
 
-To start testing your website, simply run `sitespeed.io` with the URL of the site you want to analyze. For example:
+要开始测试您的网站，只需运行 `sitespeed.io` 并指定您要分析的网站 URL。例如：
 
  ```bash
 sitespeed.io https://www.example.com --browser chrome -n 5
  ```
 
-This command tests https://www.example.com using Chrome and performs 5 iterations of the test. This approach helps in obtaining a more accurate median performance measurement by testing the site multiple times.
+此命令使用 Chrome 测试 https://www.example.com 并执行 5 次测试迭代。这种方法通过多次测试网站来获得更准确的中位数性能测量。
 
-## Advanced Configuration
+## 高级配置
 
-sitespeed.io offers a wide range of configuration options to tailor the tests to your specific needs. You can specify different browsers, adjust connectivity settings, and much more. For a comprehensive list of all available options, visit our [configuration documentation](https://www.sitespeed.io/documentation/sitespeed.io/configuration/).
+sitespeed.io 提供广泛的配置选项，以根据您的特定需求定制测试。您可以指定不同的浏览器、调整连接设置等等。有关所有可用选项的完整列表，请访问我们的[配置文档](https://www.sitespeed.io/documentation/sitespeed.io/configuration/)。
 
-Additionally, for a quick overview of all command-line options, you can run:
+此外，要快速查看所有命令行选项，您可以运行：
 
 ```bash
 sitespeed.io --help
 ```
 
-This command displays all the available flags and settings you can use with sitespeed.io, helping you fine-tune your performance testing to fit your unique requirements.
+此命令显示您可以在 sitespeed.io 中使用的所有可用标志和设置，帮助您微调性能测试以适应您的独特需求。
 
-Whether you're running a quick check or a detailed analysis, sitespeed.io provides the flexibility and power you need to deeply understand and improve your website's performance.
+无论您是进行快速检查还是详细分析，sitespeed.io 都提供了深入了解和改进网站性能所需的灵活性和功能。
 
-## Mobile Performance Testing
+## 移动端性能测试
 
-In today's mobile-first world, ensuring your website performs optimally on smartphones and tablets is crucial. With `sitespeed.io`, you can simulate and analyze the performance of your website on mobile devices, helping you understand and improve the user experience for mobile audiences.
+在当今移动优先的世界中，确保您的网站在智能手机和平板电脑上表现最佳至关重要。使用 `sitespeed.io`，您可以模拟和分析网站在移动设备上的性能，帮助您了解并改善移动用户的体验。
 
-### Why Test on Mobile?
+### 为什么要在移动设备上测试？
 
-- **User Experience**: A significant portion of web traffic comes from mobile devices. Testing on mobile ensures your site is optimized for these users.
-- **Search Engine Ranking**: Search engines like Google prioritize mobile-friendly websites in their search results.
-- **Performance Insights**: Mobile devices have different performance characteristics than desktops, such as CPU limitations and network variability.
+- **用户体验**：很大一部分 Web 流量来自移动设备。在移动设备上测试可确保您的网站为这些用户进行了优化。
+- **搜索引擎排名**：像 Google 这样的搜索引擎在其搜索结果中优先考虑移动友好的网站。
+- **性能洞察**：移动设备具有与桌面不同的性能特征，例如 CPU 限制和网络可变性。
 
-### How sitespeed.io Helps
+### sitespeed.io 如何帮助
 
-- **Real Browser Testing**: Simulate mobile browsers to get accurate performance data as experienced by real users.
-- **Device-Specific Metrics**: Gain insights into how your site performs on different mobile devices and networks.
-- **Responsive Design Analysis**: Test how well your site adapts to various screen sizes and orientations.
+- **真实浏览器测试**：模拟移动浏览器以获得真实用户所体验的准确性能数据。
+- **设备特定指标**：深入了解您的网站在不同移动设备和网络上的表现。
+- **响应式设计分析**：测试您的网站如何适应各种屏幕尺寸和方向。
 
-### Getting Started
+### 开始使用
 
-To start testing your website’s mobile performance, you need to setup your mobile phone for testing. We got [documentation for setting up your Android phone](https://www.sitespeed.io/documentation/sitespeed.io/mobile-phones/#test-on-android) and [iOS](https://www.sitespeed.io/documentation/sitespeed.io/mobile-phones/#test-on-ios). 
+要开始测试您网站的移动性能，您需要设置手机进行测试。我们有[设置 Android 手机的文档](https://www.sitespeed.io/documentation/sitespeed.io/mobile-phones/#test-on-android)和[iOS](https://www.sitespeed.io/documentation/sitespeed.io/mobile-phones/#test-on-ios)。
 
-When your setup is ready, you can run tests on your Android phone.
+设置完成后，您可以在 Android 手机上运行测试。
 
 ```bash
 sitespeed.io https://www.example.com --android
 ```
 
-## Examples
+## 示例
 
-`sitespeed.io` provides insightful HTML reports that help you visualize and understand your website's performance. Here are some examples to illustrate what you can achieve:
+`sitespeed.io` 提供富有洞察力的 HTML 报告，帮助您可视化和理解网站的性能。以下是一些示例，说明您可以实现的目标：
 
-### Summary Report
+### 摘要报告
 
-Here's an example of a summary report in HTML, offering a comprehensive overview of your site's performance metrics:
+以下是 HTML 摘要报告的示例，提供您网站性能指标的全面概述：
 
-![Summary Report](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/start-readme.jpg)
+![摘要报告](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/start-readme.jpg)
 
-This report includes key performance indicators like load times, page size, and request counts, giving you a quick snapshot of your site’s overall health.
+此报告包括关键性能指标，如加载时间、页面大小和请求数，为您提供网站整体健康状况的快速快照。
 
-### Individual Page Report
+### 单个页面报告
 
-For more detailed analysis, here's an individual page report:
+要进行更详细的分析，以下是单个页面报告：
 
-![Individual Page Report](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/start-url-readme.jpg)
+![单个页面报告](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/start-url-readme.jpg)
 
-This report dives deeper into a single page's performance, providing metrics on aspects like scripting, rendering, and network activity, crucial for pinpointing specific areas of improvement.
+此报告深入分析单个页面的性能，提供脚本、渲染和网络活动等方面的指标，这对于确定需要改进的特定领域至关重要。
 
-### Performance Monitoring Dashboard
+### 性能监控仪表板
 
-To monitor your website’s performance over time, check out our live setup at [dashboard.sitespeed.io](https://dashboard.sitespeed.io/), which integrates `sitespeed.io` with Graphite and Grafana.
+要监控您网站随时间的性能，请查看我们在 [dashboard.sitespeed.io](https://dashboard.sitespeed.io/) 的实时设置，它将 `sitespeed.io` 与 Graphite 和 Grafana 集成。
 
-#### Metrics in Graphite/Grafana
+#### Graphite/Grafana 中的指标
 
-Collected metrics from a URL visualized in Graphite/Grafana:
+从 URL 收集并在 Graphite/Grafana 中可视化的指标：
 
-![Graphite/Grafana Metrics](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/grafana-readme.jpg)
+![Graphite/Grafana 指标](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/grafana-readme.jpg)
 
-This setup allows for continuous tracking of performance, helping you identify trends and potential issues.
+此设置允许持续跟踪性能，帮助您识别趋势和潜在问题。
 
-#### Trends in Grafana
+#### Grafana 中的趋势
 
-Trends over time in Grafana provide a long-term view of your site's performance:
+Grafana 中随时间的趋势提供您网站性能的长期视图：
 
-![Grafana Trends](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/grafana-trends-readme.jpg)
+![Grafana 趋势](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/grafana-trends-readme.jpg)
 
-With these insights, you can make informed decisions about optimizations and track the impact of changes you make.
+通过这些洞察，您可以就优化做出明智的决策，并跟踪您所做更改的影响。
 
-### Video Performance Analysis
+### 视频性能分析
 
-For visual feedback, `sitespeed.io` can generate videos, making it easier to see how your site loads in real-time. Here's a sample video:
+为了获得视觉反馈，`sitespeed.io` 可以生成视频，使您更容易看到网站如何实时加载。以下是示例视频：
 
-![Video Analysis](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/barack.gif)
+![视频分析](https://raw.githubusercontent.com/sitespeedio/sitespeed.io/main/docs/img/barack.gif)
 
-Video analysis is most easily done using Docker and offers a unique perspective on user experience, highlighting areas that need attention.
+视频分析最容易使用 Docker 完成，并提供用户体验的独特视角，突出需要关注的领域。
 
 
-# Contributing
+# 贡献
 
-We welcome contributions from the community! Whether you're fixing a bug, adding a feature, or improving documentation, your help is valuable. Here’s how you can contribute:
+我们欢迎社区的贡献！无论您是修复错误、添加功能还是改进文档，您的帮助都是有价值的。以下是如何贡献：
 
-1. **Create an Issue**: Create an issue and discuss with us how to implement the issue.
-2. **Fork and Clone**: Fork the repository and clone it locally.
-3. **Create a Branch**: Create a new branch for your feature or bug fix.
-4. **Develop**: Make your changes. Ensure you adhere to the coding standards and write tests if applicable.
-5. **Test**: Run tests to ensure everything works as expected.
-6. **Submit a Pull Request**: Push your changes to your fork and submit a pull request to the main repository.
+1. **创建问题**：创建问题并与我们讨论如何实现该问题。
+2. **Fork 和克隆**：Fork 仓库并在本地克隆它。
+3. **创建分支**：为您的功能或错误修复创建新分支。
+4. **开发**：进行更改。确保您遵守编码标准，并在适用时编写测试。
+5. **测试**：运行测试以确保一切按预期工作。
+6. **提交 Pull Request**：将您的更改推送到您的 fork 并提交 pull request 到主仓库。
 
-Before contributing, please read our [CONTRIBUTING.md](.github/CONTRIBUTING.md) for more detailed information on how to contribute.
+在贡献之前，请阅读我们的 [CONTRIBUTING.md](.github/CONTRIBUTING.md) 以获取有关如何贡献的更详细信息。
 
-# Reporting Issues
-Found a bug or have a feature request? Please use the [GitHub Issues](https://github.com/sitespeedio/sitespeed.io/issues) to report them. Be sure to check existing issues to avoid duplicates.
+# 问题反馈
 
-# Community and Support
+发现错误或有功能请求？请使用 [GitHub Issues](https://github.com/sitespeedio/sitespeed.io/issues) 报告它们。请务必检查现有问题以避免重复。
 
-Join our community! Whether you need help, want to share your experience, or discuss potential improvements, there are several ways to get involved:
+# 社区和支持
 
-- **Slack**: Connect with fellow users and the development team on [Slack](https://join.slack.com/t/sitespeedio/shared_invite/zt-296jzr7qs-d6DId2KpEnMPJSQ8_R~WFw).
-- **GitHub Issues**: For technical questions, feature requests, and bug reports, use our [GitHub issues](https://github.com/sitespeedio/sitespeed.io/issues).
-- **RSS/Changelog**: Latest releases and information can always be found in our [RSS feed](https://github.com/sitespeedio/sitespeed.io/releases.atom) and in our [changelog](https://github.com/sitespeedio/sitespeed.io/blob/main/CHANGELOG.md).
-- **Mastodon**: Follow us on Mastodon [https://fosstodon.org/@sitespeedio](https://fosstodon.org/@sitespeedio).
+加入我们的社区！无论您需要帮助、想要分享您的经验，还是讨论潜在的改进，都有几种方式可以参与：
 
-We're excited to have you in our community and look forward to your contributions and interactions!
+- **Slack**：在 [Slack](https://join.slack.com/t/sitespeedio/shared_invite/zt-296jzr7qs-d6DId2KpEnMPJSQ8_R~WFw) 上与用户和开发团队联系。
+- **GitHub Issues**：对于技术问题、功能请求和错误报告，请使用我们的 [GitHub issues](https://github.com/sitespeedio/sitespeed.io/issues)。
+- **RSS/更新日志**：最新版本和信息始终可以在我们的 [RSS feed](https://github.com/sitespeedio/sitespeed.io/releases.atom) 和[更新日志](https://github.com/sitespeedio/sitespeed.io/blob/main/CHANGELOG.md)中找到。
+- **Mastodon**：在 Mastodon 上关注我们 [https://fosstodon.org/@sitespeedio](https://fosstodon.org/@sitespeedio)。
 
-# License
-[The MIT License (MIT)](LICENSE).
+我们很高兴您加入我们的社区，期待您的贡献和互动！
+
+# 许可证
+[The MIT License (MIT)](LICENSE)。
 
 [stars-url]: https://github.com/sitespeedio/sitespeed.io/stargazers
 [stars-image]: https://img.shields.io/github/stars/sitespeedio/sitespeed.io.svg?style=flat-square
