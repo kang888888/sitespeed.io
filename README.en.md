@@ -112,9 +112,33 @@ sitespeed.io https://www.example.com --browser chrome -n 5
 
 This command tests https://www.example.com using Chrome and performs 5 iterations of the test. This approach helps in obtaining a more accurate median performance measurement by testing the site multiple times.
 
+### Generate Chinese Reports
+
+To generate HTML reports in Chinese, you can use the `--html.locale zh` parameter:
+
+ ```bash
+sitespeed.io https://www.example.com --html.locale zh
+ ```
+
+This will generate reports with Chinese navigation, table headers, and metric descriptions. By default, reports use English (`--html.locale en`).
+
 ## Advanced Configuration
 
-sitespeed.io offers a wide range of configuration options to tailor the tests to your specific needs. You can specify different browsers, adjust connectivity settings, and much more. For a comprehensive list of all available options, visit our [configuration documentation](https://www.sitespeed.io/documentation/sitespeed.io/configuration/).
+sitespeed.io offers a wide range of configuration options to tailor the tests to your specific needs. You can specify different browsers, adjust connectivity settings, choose report language, and much more. For a comprehensive list of all available options, visit our [configuration documentation](https://www.sitespeed.io/documentation/sitespeed.io/configuration/).
+
+### Language Options
+
+You can set the language for HTML reports using the `--html.locale` parameter. Currently supported:
+- `zh` - Chinese
+- `en` - English (default)
+
+```bash
+# Generate Chinese report
+sitespeed.io https://www.example.com --html.locale zh
+
+# Generate English report (default)
+sitespeed.io https://www.example.com --html.locale en
+```
 
 Additionally, for a quick overview of all command-line options, you can run:
 

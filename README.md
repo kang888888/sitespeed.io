@@ -113,9 +113,33 @@ sitespeed.io https://www.example.com --browser chrome -n 5
 
 此命令使用 Chrome 测试 https://www.example.com 并执行 5 次测试迭代。这种方法通过多次测试网站来获得更准确的中位数性能测量。
 
+### 生成中文报告
+
+要生成中文版本的 HTML 报告，可以使用 `--html.locale zh` 参数：
+
+ ```bash
+sitespeed.io https://www.example.com --html.locale zh
+ ```
+
+这将生成包含中文导航、表头和指标说明的报告。默认情况下，报告使用英文（`--html.locale en`）。
+
 ## 高级配置
 
-sitespeed.io 提供广泛的配置选项，以根据您的特定需求定制测试。您可以指定不同的浏览器、调整连接设置等等。有关所有可用选项的完整列表，请访问我们的[配置文档](https://www.sitespeed.io/documentation/sitespeed.io/configuration/)。
+sitespeed.io 提供广泛的配置选项，以根据您的特定需求定制测试。您可以指定不同的浏览器、调整连接设置、选择报告语言等等。有关所有可用选项的完整列表，请访问我们的[配置文档](https://www.sitespeed.io/documentation/sitespeed.io/configuration/)。
+
+### 语言选项
+
+通过 `--html.locale` 参数可以设置 HTML 报告的语言。目前支持：
+- `zh` - 中文
+- `en` - 英文（默认）
+
+```bash
+# 生成中文报告
+sitespeed.io https://www.example.com --html.locale zh
+
+# 生成英文报告（默认）
+sitespeed.io https://www.example.com --html.locale en
+```
 
 此外，要快速查看所有命令行选项，您可以运行：
 
